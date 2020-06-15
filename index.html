@@ -34,7 +34,7 @@
         <div class="card">
           <div class="card-header">
             <strong>
-              <i class="fa fa-list-alt"></i> Search Weather</strong>
+              <i class="fa fa-list-alt"></i> Weather forecast</strong>
           </div>
           <div class="card-body">
 
@@ -45,29 +45,6 @@
               <div class="form-group">
                 <label id="searchCity" for="search">Search City</label>
                 <input type="text" class="form-control" id="search-term">
-              </div>
-
-              <!-- Here we capture the number weather forecast  -->
-              <div class="form-group">
-                <label for="pwd">Weather forecast 1 day / 3 days / 7 days, :</label>
-                <select id="numberOfDays" class="custom-select" aria-labelledby="dropdownMenuButton">
-                  <option selected value="1">1</option>
-                  <!-- Setting the option for 3 as default -->
-                  <option value="3" selected>3</option>
-                  <option value="7">7</option>
-                </select>
-              </div>
-
-              <!-- Here we capture the Start Year Parameter-->
-              <div class="form-group">
-                <label id="start" for="start-day">Start Day : </label>
-                <input type="text" class="form-control" id="start-year">
-              </div>
-
-              <!-- Here we capture the End Year Parameter -->
-              <div class="form-group">
-                <label id="end" for="end-day">End Day : </label>
-                <input type="text" class="form-control" id="end-year">
               </div>
 
               <!-- Here we have our final submit button -->
@@ -94,11 +71,20 @@
           <!-- card Heading for the retrieved articles box -->
           <div class="card-header">
             <strong>
-              <i class="fa fa-table"></i> Weather Forecast</strong>
+              <i class="fa fa-table"></i> 5 day weather forecast</strong>
           </div>
 
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="article-section">
+          <!-- This main card will weather results  -->
+          <div class="card-body" id="weather-result">
+            <div id="notification"></div>
+            <div id="weather-container">
+                <div id="weather-icons"></div>
+                <div id ="temperature-value"><p> -° <span>C</span></p></div>
+                <div id="temperature-description"><p></p></div>
+                <div id="location"><p></p></div>
+
+            </div>
+
           </div>
         </div>
       </div>
@@ -120,8 +106,6 @@
     </div>
 
   </div>
-
-
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
