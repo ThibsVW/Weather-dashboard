@@ -25,3 +25,34 @@
     background-color: blue;
     color: white;
 }
+
+.uvGreen {
+    background-color: green;
+    color: black;
+}
+.uvYellow {
+    background-color: yellow;
+    color: black;
+}
+.uvOrange {
+    background-color: orange;
+    color: black;
+}
+.uvOrange {
+    background-color: red;
+    color: black;
+}
+.uvPurple {
+    background-color: purple;
+    color: black;
+}
+
+#weatherForecast{
+
+    border: solid;
+    color: rgb(8, 8, 94);
+    text-align: center;
+    background-image: url('../Assets/back1.jpg');
+    padding-top: 20px;
+    margin-top: 30px;
+}

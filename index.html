@@ -18,98 +18,91 @@
       <div class="jumbotron">
         <h1 class="text-center">
           <strong>
-            <i class="fa fa-newspaper-o"></i> Weather Dashboard</strong>
+            <i class="fa fa-newspaper-o"></i> Weather Dashboard
+          </strong>
         </h1>
       </div>
-      <!-- Row for Searching weather -->
-      <div class="row">
-        <div class="col-sm-12">
-          <br>
-          <!-- First card is for handling the search parameters -->
-          <div class="card">
-            <div class="card-header">
-              <strong>
-                <i class="fa fa-list-alt"></i> Weather forecast</strong>
+      <!-- column for search city and recent searches -->
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <label for="search">Search City</label>
+              <input type="text" class="form-control" id="current-search-city">
             </div>
-            <div class="card-body">
-              <!-- Here we create an HTML Form for handling the inputs-->
-              <form role="form">
-                <!-- Here we create the text box for capturing the search term-->
-                <div class="form-group">
-                  <label for="search">Search City</label>
-                  <input type="text" class="form-control" id="city-name" placeholder="Look for a city HERE">
-                </div>
-                <!-- Here we have our final submit button -->
-                <button id="btnSearch" type="submit" class="btn btn-default">
-                  <i class="fa fa-search"></i> Search</button>
-                <button class="btn btn-default" id="clear-all">
-                  <i class="fa fa-trash"></i> Clear Results</button>
-              </form>
+            ​<button type="submit" class="btn btn-default" id="btnSearch"> <i class="fa fa-trash"></i> Search</button>
+            <button type="reset" class="btn btn-default" id="clear-all"> <i class="fa fa-trash"></i> Clear</button>
+            <p></p>
+            <p></p>
+            <p></p>
+            Recent searches <p></p>
+            <div id="recent-searches">
             </div>
           </div>
-        </div>
-      </div>
-      <!-- This row will handle all of the retrieved data -->
-      <div class="row">
-        <div class="col-sm-12">
-          <br>
-          <!-- This card will initially display weather results -->
-          <div class="card">
-            <!-- card Heading for the retrieved articles box -->
-            <div class="card-header">
-              <strong>
-                <i class="fa fa-table"></i> 5 day weather forecast</strong>
-            </div>
-            <!-- This main card will weather results  -->
-            <div class="card-body" id="weather-result">
-              <ul id="cityDisplay"></ul>
-              <div id="notification"></div>
-              <div id="weather-container">
-                <div id="weather-icons"></div>
-                <div id="temperature-value">
+          <!-- column for current day weather conditions and 5 day forecast -->
+          <div class="col-8" id="current-city-data">
+            <h3 class="city-data" id="city-name"></h3>
+            <div class="city-data" id="city-date"></div>
+            <div class="city-data" id="city-temp"></div>
+            <div class="city-data" id="city-humidity"></div>
+            <div class="city-data" id="city-wind"></div>
+            <div class="uvIndex"></div>
+          <div class="container" id="weatherForecast"><h3>5 day Weather Forecast</h3>
+            <div class="row">
+              <div class="col-sm">
+                <div id="day1"><span>Day 1</span>
+                  <div id="city-date1"></div>
+                  <div id="city-icon1"></div>
+                  <div id="city-temp1"></div>
+                  <div id="city-humidity1"></div>
                 </div>
-                <div id="temperature-description">
-                  <p></p>
+              </div>
+              <div class="col-sm">
+                <div id="day2"><span>Day 2</span>
+                  <div id="city-date2"></div>
+                  <div id="city-icon2"></div>
+                  <div id="city-temp2"></div>
+                  <div id="city-humidity2"></div>
                 </div>
-                <div id="location">
-                  <p></p>
+              </div>
+              <div class="col-sm">
+                <div class="col-sm">
+                  <div id="day3"><span>Day 3</span>
+                    <div id="city-date3"></div>
+                    <div id="city-icon3"></div>
+                    <div id="city-temp3"></div>
+                    <div id="city-humidity3"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="col-sm">
+                  <div id="day4"><span>Day 4</span>
+                    <div id="city-date4"></div>
+                    <div id="city-icon4"></div>
+                    <div id="city-temp4"></div>
+                    <div id="city-humidity4"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="col-sm">
+                  <div id="day5"><span>Day 5</span>
+                    <div id="city-date5"></div>
+                    <div id="city-icon5"></div>
+                    <div id="city-temp5"></div>
+                    <div id="city-humidity5"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-
-          <div class="card">
-
-          <div class ="card-body">
-            <h3 id="city-name"></h3>
-            <div id ="city-temp"></div>
-            <div id="city-humidity"></div>
-            <div id="city-wind"></div>
-          </div>
-          </div>
         </div>
-      </div>
-      <!-- Footer Region -->
-      <div class="row">
-        <div class="col-sm-12">
-          <!-- Line Break followed by closing -->
-          <hr>
-          <h5 class="text-center">
-            <small>Application powered by OpenWeather
-              <i class="fa fa-heart"></i>
-            </small>
-          </h5>
         </div>
-      </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    <script src="Develop/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="Develop/script.js"></script>
   </body>
 </html>
+
+
