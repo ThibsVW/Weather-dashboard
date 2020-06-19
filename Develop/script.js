@@ -1,55 +1,80 @@
 
-$(document).ready(function() {
-
-const searchCity = $("#search-term");
-const btnClear = $("#clear-all");
-const notificationElement = $("#notification");
-const iconElement =$('#weather-icons');
-const tempElement = $("#temperature-value p");
-const descElement = $('#temperature-description p');
-const locationElement = $("#location p");
-const city = $("#searchCity").val();
-
-
-// .on("click") function associated with the search button
-$("#btnSearch").on("click", function(event) {
+function citySearch() {
     event.preventDefault();
+    const cityName = ($("#city-name").val());
+    // query URL and custom API KEY variable for current day weather 
+    var APIKey = "ba2a1569518951bccaf8df7ccbbf0e7b";
+    const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=metric&appid=" + APIKey;
+    //ajax "get" method for the JSON object
+    $.get({
+        url: queryURL,
+        
+    }).then(function (response) {
+        console.log(response);
+    });
+};
+    //button to run search
+$("#btnSearch").on("click", citySearch)
 
 
-var queryURL =  "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=ba2a1569518951bccaf8df7ccbbf0e7b";
-
-$.ajax ({
-    URL : queryURL,
-    method :"GET"
-}).then(function(response){
-
-   console.log(response)
-
-})
-
-   
-   });
 
 
 
+//Keep city searached by the guests
+     var keepCities = [];
+     var displayCity = $("#cityDisplay");
+     var searchButton = $("#btnSearch");
+     var cityInput = $("#city-name");
 
-//Takes API data (JSON object) and turns it into elements on the page
-function upDateWeather (){
+      // Function for displaying city names 
+      function renderCityNames() {
+
+        displayCity.innerHTML = "";
+        
+$("li").empty()
+
+        // Render a new city for each search
+        for (var i = 0; i < keepCities.length; i++) {
+
+       var keepCity = keepCities[i];
+       var li = $("<li>");
+       li.text(keepCities[i]);
+       li.attr("data-index", i);
+       var button = $("<h1>");
+       li.append(button);
+       displayCity.append(li);
+       
+        }
+      }
+
+function init () {
+
+    //stored city names from local storage
+    var storedCityNames = JSON.parse(localStorage.getItem("KeepCities"));
+    //update local storage if keepCities 
+    if (storedCityNames !==null){
+        keepCities = storedCityNames;
+    }
+    renderCityNames();
 
 }
 
-// function to empty out previous researches
-function clear (){
-    $("#weather-result").empty();
-
+function storeCityNames (){
+    localStorage.setItem("keepCities", JSON.stringify(keepCities));
 }
 
 
+searchButton.on("click", function (event){
+    event.preventDefault();
+    var cityTextDisplay = cityInput.val();
+    if (cityTextDisplay ==="") {
+        return;
+    }
+    keepCities.push(cityTextDisplay);
+    cityInput.value = "";
 
-
-//.on("click") function ssociated with the clear button
-$("#clear-all").on("click", clear);
-
-
+storeCityNames();
+renderCityNames();
 
 })
+
