@@ -1,4 +1,6 @@
 //create some global variables
+$("#currentDate").text(moment().format('LLLL'));
+
 function citySearch() {
     event.preventDefault();
     var currentSearchCity = ($("#current-search-city").val());
@@ -109,3 +111,55 @@ function citySearch() {
     });
 }
 $("#btnSearch").on("click", citySearch)
+
+
+let city = "";
+let search_history = JSON.parse(localStorage.getItem("cities")) === null ? [] : JSON.parse(localStorage.getItem("cities"));
+
+//Keep city searached by the guests
+var keepCities = [];
+var displayCity = $("#recent-searches");
+var searchButton = $("#btnSearch");
+var cityInput = $("#current-search-city");
+ // Function for displaying city names 
+ function renderCityNames() {
+   displayCity.innerHTML = "";
+   
+$("li").empty()
+
+   // Render a new city for each search
+   for (var i = 0; i < keepCities.length; i++) {
+  var keepCity = keepCities[i];
+  var li = $("<li>");
+  li.text(keepCities[i]);
+  li.attr("data-index", i);
+  var button = $("<p>");
+  //button.text("City Searched");
+  li.append(button);
+  displayCity.append(li);
+  
+   }
+ }
+function init () {
+//stored city names from local storage
+var storedCityNames = JSON.parse(localStorage.getItem("KeepCities"));
+//update local storage if keepCities 
+if (storedCityNames !==null){
+   keepCities = storedCityNames;
+}
+renderCityNames();
+}
+function storeCityNames (){
+localStorage.setItem("keepCities", JSON.stringify(keepCities));
+}
+searchButton.on("click", function (event){
+event.preventDefault();
+var cityTextDisplay = cityInput.val();
+if (cityTextDisplay ==="") {
+   return;
+}
+keepCities.push(cityTextDisplay);
+cityInput.value = "";
+storeCityNames();
+renderCityNames();
+})
