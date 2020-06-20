@@ -1,6 +1,7 @@
 body {
     font-size: 16px;
     font-family: Tahoma;
+    background-color: thistle;
 }
 li { 
     list-style-type: none;
@@ -8,6 +9,8 @@ li {
 h4 {
     font-weight: bold;
     padding-top: 40px;
+    text-align: center;
+    color: steelblue;
 }
 
 .jumbotron {
@@ -17,6 +20,20 @@ h4 {
     align-items: center;
     background-image: url('../Assets/Images/background.jpg');
  
+}
+
+.col-sm{
+background-image: url(../Assets/Images/back1.jpg);
+text-align: center;
+font-size: medium;
+
+}
+
+#city-date1, #city-date2,#city-date3,#city-date4,#city-date5 {
+
+    background-color: royalblue;
+    color: seashell;
+
 }
 
 #btnSearch {
@@ -50,3 +67,4 @@ h4 {
     background-color: purple;
     color: white;
 }
+

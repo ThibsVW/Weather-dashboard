@@ -135,7 +135,6 @@ function renderCityNames() {
         li.text(keepCities[i]);
         li.attr("data-index", i);
         var button = $("<p>");
-        //button.text("City Searched");
         li.append(button);
         displayCity.append(li);
 
