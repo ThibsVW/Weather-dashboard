@@ -17,7 +17,8 @@ This project is a weather dashboard app with search functionality to find curren
 
 ## Screenshot
 
-![screenshot](https://user-images.githubusercontent.com/64518932/85196670-6d20c680-b30e-11ea-86b1-f5ab745ade7f.JPG)
+![screenshot](https://user-images.githubusercontent.com/64518932/86472279-847d9c00-bd71-11ea-9c70-b0f34d64ea60.JPG)
+
 
 
 
