@@ -1,70 +1,60 @@
-body {
-    font-size: 16px;
-    font-family: Tahoma;
-    background-color: thistle;
+body{
+
+    background-image: url(./Images/background.jpg);
 }
-li { 
-    list-style-type: none;
-  }
+
+nav {
+    border-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    background-image: url(./Images/background.jpg);
+}
+
 h4 {
-    font-weight: bold;
-    padding-top: 40px;
+    color: white;
     text-align: center;
-    color: steelblue;
 }
 
-.jumbotron {
+.search-bar {
+    width: 20%;
+}
 
-    color: rgb(212, 216, 231);
+table,
+th,
+tr,
+td {
+    border-width: thick thick thick thick;
+    border: 5px solid white;
+    background-image: url(./Images/background.jpg);
+    border-spacing: 10px 1rem;
+    border-collapse: separate;
+}
+
+.btn-group button {
+    display: block;
+}
+
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
     text-align: center;
-    align-items: center;
-    background-image: url('../Assets/Images/background.jpg');
- 
+    pointer-events: none;
+    color: #aaa;
 }
 
-.col-sm{
-background-image: url(../Assets/Images/back1.jpg);
-text-align: center;
-font-size: medium;
+p, th, td {
 
-}
-
-#city-date1, #city-date2,#city-date3,#city-date4,#city-date5 {
-
-    background-color: royalblue;
-    color: seashell;
-
-}
-
-#btnSearch {
-    background-color: #017A91;
-    color: white;
-}
-#clear-all {
-    background-color: #017A91;
-    color: white;
-}
-#five-day-forecast {
-    padding-top: 80px;
-}
-.uvGreen {
-    background-color: green;
-    color: black;
-}
-.uvYellow {
-    background-color: yellow;
-    color: black;
-}
-.uvOrange {
-    background-color: orange;
-    color: black;
-}
-.uvRed {
-    background-color: red;
-    color: black;
-}
-.uvPurple {
-    background-color: purple;
-    color: white;
+    color:white
 }
 
